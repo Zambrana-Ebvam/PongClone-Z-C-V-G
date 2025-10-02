@@ -2,7 +2,8 @@
 
 public class BallController : MonoBehaviour
 {
-    public float speed = 8f; // Velocidad de la pelota
+    public float speed = 8f;         // Velocidad inicial de la pelota
+    public float speedIncrease = 0.5f; // Cuánto aumenta cada vez que toca una raqueta
     private Rigidbody2D rb;
 
     // Ángulo mínimo permitido en Y (para evitar que se quede recta)
@@ -49,6 +50,9 @@ public class BallController : MonoBehaviour
                 dir.y = (dir.y >= 0 ? minY : -minY);
             }
 
+            // 👇 Aumentar velocidad al chocar con una raqueta
+            speed += speedIncrease;
+
             rb.velocity = dir * speed;
         }
         // Rebote con paredes
@@ -81,17 +85,16 @@ public class BallController : MonoBehaviour
         if (collision.CompareTag("GoalLeft"))
         {
             Debug.Log("Punto para Player 2!");
-            GameManager.instance.AddScore(2); // 👈 actualizar score
+            GameManager.instance.AddScore(2);
             ResetBall(1);
         }
         else if (collision.CompareTag("GoalRight"))
         {
             Debug.Log("Punto para Player 1!");
-            GameManager.instance.AddScore(1); // 👈 actualizar score
+            GameManager.instance.AddScore(1);
             ResetBall(-1);
         }
     }
-
 
     void ResetBall(int dirX)
     {
@@ -105,6 +108,9 @@ public class BallController : MonoBehaviour
         {
             dir.y = (dir.y >= 0 ? minY : -minY);
         }
+
+        // 👇 Resetear velocidad al valor inicial al reiniciar
+        speed = 8f;
 
         rb.velocity = dir * speed;
     }
