@@ -1,11 +1,11 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 
 public class BallController : MonoBehaviour
 {
     public float speed = 8f; // Velocidad de la pelota
     private Rigidbody2D rb;
 
-    // ¡ngulo mÌnimo permitido en Y (para evitar que se quede recta)
+    // √Ångulo m√≠nimo permitido en Y (para evitar que se quede recta)
     public float minY = 0.3f;
 
     void Start()
@@ -21,7 +21,7 @@ public class BallController : MonoBehaviour
 
         Vector2 dir = new Vector2(dirX, dirY).normalized;
 
-        // Forzar ·ngulo mÌnimo
+        // Forzar √°ngulo m√≠nimo
         if (Mathf.Abs(dir.y) < minY)
         {
             dir.y = (dir.y >= 0 ? minY : -minY);
@@ -43,7 +43,7 @@ public class BallController : MonoBehaviour
 
             Vector2 dir = new Vector2(x, y).normalized;
 
-            // Forzar ·ngulo mÌnimo
+            // Forzar √°ngulo m√≠nimo
             if (Mathf.Abs(dir.y) < minY)
             {
                 dir.y = (dir.y >= 0 ? minY : -minY);
@@ -66,7 +66,7 @@ public class BallController : MonoBehaviour
                 if (dir.y <= 0) dir.y = minY; // aseguramos que vaya hacia arriba
             }
 
-            // Forzar ·ngulo mÌnimo
+            // Forzar √°ngulo m√≠nimo
             if (Mathf.Abs(dir.y) < minY)
             {
                 dir.y = (dir.y > 0 ? minY : -minY);
@@ -81,14 +81,17 @@ public class BallController : MonoBehaviour
         if (collision.CompareTag("GoalLeft"))
         {
             Debug.Log("Punto para Player 2!");
+            GameManager.instance.AddScore(2); // üëà actualizar score
             ResetBall(1);
         }
         else if (collision.CompareTag("GoalRight"))
         {
             Debug.Log("Punto para Player 1!");
+            GameManager.instance.AddScore(1); // üëà actualizar score
             ResetBall(-1);
         }
     }
+
 
     void ResetBall(int dirX)
     {
@@ -97,7 +100,7 @@ public class BallController : MonoBehaviour
 
         Vector2 dir = new Vector2(dirX, dirY).normalized;
 
-        // Forzar ·ngulo mÌnimo
+        // Forzar √°ngulo m√≠nimo
         if (Mathf.Abs(dir.y) < minY)
         {
             dir.y = (dir.y >= 0 ? minY : -minY);
@@ -106,7 +109,7 @@ public class BallController : MonoBehaviour
         rb.velocity = dir * speed;
     }
 
-    // Calcula dÛnde tocÛ en la paleta (-1 abajo, 0 centro, 1 arriba)
+    // Calcula d√≥nde toc√≥ en la paleta (-1 abajo, 0 centro, 1 arriba)
     float HitFactor(Vector2 ballPos, Vector2 racketPos, float racketHeight)
     {
         return (ballPos.y - racketPos.y) / racketHeight;
