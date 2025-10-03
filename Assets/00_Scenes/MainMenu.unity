@@ -259,7 +259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 835312d7a4890964b95aa6cfe1737811, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73cb5acb21fe1ce4ea23ab2be3fd1ccf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1348434435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42c3cbb75fb9a7d4a972dfc4513b4dff, type: 3}
+  m_Script: {fileID: 11500000, guid: f4c20e0c310962a4fa2e73c2d0e9c0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameSceneName: SampleScene
@@ -623,7 +623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: 224}
+  m_AnchoredPosition: {x: -333, y: 224}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408563642
